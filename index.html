@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dashboard 📰</title>
+        <link rel="icon" type="image/x-icon" href="assets/birdhouse(1).ico">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    </head>
+    <body>
+        <main class="widgets">
+
+            <div class="widget-column widget-column-right">
+
+                <form class="search-bar" action="https://www.google.com/search" method="get">
+                    <input
+                        id="search-input"
+                        class="search-input"
+                        type="search"
+                        name="q"
+                        placeholder="Search..."
+                    >
+                    <button id="search-clear" class="search-clear" type="button" aria-label="Clear search">
+                        G
+                    </button>
+                </form>
+
+                <section class="widget">
+                    <div class="widget-header">SHORTCUTS</div>
+                    <div class="widget-body">
+                        <div class="shortcuts-grid">
+                            <!-- 1st row -->
+                            <a class="shortcut" href="https://www.youtube.com">
+                                <img class="shortcut-icon" src="https://cdn.simpleicons.org/youtube" alt="">
+                                <span class="shortcut-label">YouTube</span>
+                            </a>
+                            <a class="shortcut" href="https://www.reddit.com">
+                                <img class="shortcut-icon" src="https://cdn.simpleicons.org/reddit" alt="">
+                                <span class="shortcut-label">Reddit</span>
+                            </a>
+                            <a class="shortcut" href="https://www.github.com">
+                                <img id="github" class="shortcut-icon" src="https://cdn.simpleicons.org/github" alt="">
+                                <span class="shortcut-label">GitHub</span>
+                            </a>
+                            <!-- 2nd row -->
+                            <a class="shortcut" href="https://www.flashscore.com">
+                                <img class="shortcut-icon" src="https://www.google.com/s2/favicons?domain=flashscore.com&sz=64" alt="">
+                                <span class="shortcut-label">Flashscore</span>
+                            </a>
+                            <a class="shortcut" href="https://www.lofi.cafe/">
+                                <img id="lofi_cafe" class="shortcut-icon" src="https://cdn.simpleicons.org/soundcharts" alt="">
+                                <span class="shortcut-label">lofi music</span>
+                            </a>
+                            <a class="shortcut" href="https://chatgpt.com">
+                                <img class="shortcut-icon" src="https://www.google.com/s2/favicons?domain=chatgpt.com&sz=64" alt="">
+                                <span class="shortcut-label">ChatGPT</span>
+                            </a>
+                            <!-- 3rd row -->
+                            <a class="shortcut" href="https://www.espn.com/nba/scoreboard">
+                                <img class="shortcut-icon" src="https://www.google.com/s2/favicons?domain=espn.com&sz=64" alt="">
+                                <span class="shortcut-label">NBA scores</span>
+                            </a>
+                            <a class="shortcut" href="https://mail.google.com/">
+                                <img class="shortcut-icon" src="https://fonts.gstatic.com/s/i/productlogos/gmail_2020q4/v8/192px.svg" alt="">
+                                <span class="shortcut-label">Gmail</span>
+                            </a>
+                            <a class="shortcut" href="https://www.google.com/maps/">
+                                <img class="shortcut-icon" src="https://fonts.gstatic.com/s/i/productlogos/maps/v7/192px.svg" alt="">
+                                <span class="shortcut-label">Maps</span>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="widget">
+                    <div class="widget-header">SPORTS</div>
+                    <div id="sports-widget" class="widget-body"></div>
+                </section>
+
+            </div>
+
+            <div class="widget-column widget-column-right">
+
+                <section class="widget">
+                    <div class="widget-header">TIME & DATE</div>
+                    <div class="widget-body">
+                        <div class="time-display">
+                            <div id="clock"></div>
+                            <div id="date"></div>
+                        </div>
+                    </div>
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                        <span class="thumb">𖤓</span>
+                    </button>
+                </section>
+
+                <section class="widget">
+                    <div class="widget-header">WEATHER</div>
+                    <div class="widget-body weather-widget">
+                        <div class="weather-current">
+                            <div class="weather-icon">
+                                <img id="weather-icon-img">
+                            </div>
+
+                            <div class="weather-main">
+                                <div id="weather-temp">--°</div>
+                                <div id="weather-description">...</div>
+                            </div>
+                        </div>
+
+                        <div class="weather-details">
+                            <div>Feels-like: <span id="weather-feels">--°</span></div>
+                            <div>Rain: <span id="weather-rain">-- mm</span></div>
+                            <div>Max: <span id="weather-max">--°</span></div>
+                            <div>Wind: <span id="weather-wind">-- km/h</span></div>
+                            <div>Humidity: <span id="weather-humid">--%</span></div>
+                            <div>Min: <span id="weather-min">--°</span></div>
+                        </div>
+
+                        <div class="weather-forecast">
+                            <div id="forecast-1" class="forecast">
+                                <div class="forecast-date">...</div>
+                                <div class="forecast-header">
+                                    <div class="forecast-icon">
+                                        <img class="forecast-icon-img">
+                                    </div>
+                                    <div class="forecast_minmax">
+                                        <div class="forecast_minmax_section">
+                                            <i class="fa-solid fa-arrow-up fa-sm"></i>
+                                            <span class="forecast-max">--°</span>
+                                        </div>
+                                        <div class="forecast_minmax_section">
+                                            <i class="fa-solid fa-arrow-down fa-sm"></i>
+                                            <span class="forecast-min">--°</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="forecast-rain-section">
+                                    <img class="forecast-rain-icon" src="https://cdn.simpleicons.org/rainmeter/746c63" alt="">
+                                    <span class="forecast-rain">-- mm</span>
+                                </div>
+                            </div>
+
+                            <div id="forecast-2" class="forecast">
+                                <div class="forecast-date">...</div>
+                                <div class="forecast-header">
+                                    <div class="forecast-icon">
+                                        <img class="forecast-icon-img">
+                                    </div>
+                                    <div class="forecast_minmax">
+                                        <div class="forecast_minmax_section">
+                                            <i class="fa-solid fa-arrow-up fa-sm"></i>
+                                            <span class="forecast-max">--°</span>
+                                        </div>
+                                        <div class="forecast_minmax_section">
+                                            <i class="fa-solid fa-arrow-down fa-sm"></i>
+                                            <span class="forecast-min">--°</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="forecast-rain-section">
+                                    <img class="forecast-rain-icon" src="https://cdn.simpleicons.org/rainmeter/746c63" alt="">
+                                    <span class="forecast-rain">-- mm</span>
+                                </div>
+                            </div>
+
+                            <div id="forecast-3" class="forecast">
+                                <div class="forecast-date">...</div>
+                                <div class="forecast-header">
+                                    <div class="forecast-icon">
+                                        <img class="forecast-icon-img">
+                                    </div>
+                                    <div class="forecast_minmax">
+                                        <div class="forecast_minmax_section">
+                                            <i class="fa-solid fa-arrow-up fa-sm"></i>
+                                            <span class="forecast-max">--°</span>
+                                        </div>
+                                        <div class="forecast_minmax_section">
+                                            <i class="fa-solid fa-arrow-down fa-sm"></i>
+                                            <span class="forecast-min">--°</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="forecast-rain-section">
+                                    <img class="forecast-rain-icon" src="https://cdn.simpleicons.org/rainmeter/746c63" alt="">
+                                    <span class="forecast-rain">-- mm</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="weather-updated">
+                            <!-- <img id="map-icon" src="https://cdn.simpleicons.org/bamboo/746C634D" alt=""> -->
+                            <span id="last-updated">Last update</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="widget widget-placeholder">
+                    <div class="widget-header">SYSTEM</div>
+                    <div class="widget-body">
+                    </div>
+                </section>
+
+            </div>
+            
+        </main>
+
+        <script src="script.js"></script>
+    </body>
+</html>

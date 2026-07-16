@@ -1,0 +1,462 @@
+:root {
+    --border-size: 2px;
+    --gap-size: 3rem;
+    --color-bg: #f7f5ef;
+    --color-txt: #202124;
+    --color-faint: #746c63;
+    --color-more-faint: rgba(56, 49, 40, 0.3);
+    --shortcut-opacity: 0.8;
+}
+
+/* dark mode overrides */
+.dark-mode {
+    --color-bg: #1b271f;  /* 2c251f */
+    --color-txt: #f3d8b6;   
+    --color-faint: #b89b79;
+    --color-more-faint: rgba(255, 255, 255, 0.15);
+    --shortcut-opacity: 0.91;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+
+    min-height: 100vh;
+    margin: 0;
+    padding: 4rem;
+    
+    background: var(--color-bg);
+    color: var(--color-txt);
+    font-family: Calibri, Verdana, sans-serif;
+}
+
+/* WIDGETS CONTAINERS */
+
+.widgets {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--gap-size);
+}
+
+.widget-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--gap-size);
+}
+
+.widget-column-right {
+    border-left: var(--border-size) dashed var(--color-more-faint);
+    padding-left: var(--gap-size);
+}
+
+.widget-placeholder {
+    min-height: 120px;
+    background-image: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        var(--color-more-faint) 10px,
+        var(--color-more-faint) 12px
+    );
+}
+
+/* SINGLE WIDGET DATA */
+
+.widget {
+    position: relative;
+    width: 300px;
+    border: var(--border-size) solid var(--color-faint);
+    border-radius: 15px;
+    padding: 2rem 1.2rem;
+}
+
+.widget-header {
+    position: absolute;
+    top: -16px;
+    right: 1rem;
+
+    background: var(--color-bg);
+    color: var(--color-faint);
+    border: var(--border-size) solid var(--color-faint);
+    padding: 0.4rem 1.2rem;
+    border-radius: 12px;
+
+    font-size: 0.7rem;
+    font-weight: 700;
+    font-family: monospace, "Cascadia Mono";
+    letter-spacing: 0.1em;
+}
+
+.widget-body {
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+/* SPECIFIC WIDGET DATA */
+
+.time-display {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#clock {
+    font-size: 5rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: 0.05em;
+    font-variant-numeric: tabular-nums;
+    text-align: center;
+}
+
+#date {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-faint);
+    margin-top: 0.4rem;
+    padding-right: 0.4rem;
+}
+
+.weather-widget {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.weather-current {
+    display: flex;
+    /*justify-content: space-between;*/
+    align-items: flex-start;
+    width: 100%;
+    gap: 1rem;
+}
+
+.weather-icon #weather-icon-img {
+    width: 56px;
+}
+
+.weather-icon {
+    background: var(--color-faint);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.weather-main {
+    text-align: left;
+}
+
+#weather-temp {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+#weather-description {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-faint);
+    margin-top: 0.25rem;
+}
+
+.weather-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.4rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-faint);
+    margin-right: -100%;
+}
+
+.weather-details span {
+    color: var(--color-txt);
+}
+
+.weather-forecast {
+    width: 100%;
+    /*display: grid;
+    grid-template-columns: repeat(3, 1fr);*/
+    border-top: var(--border-size) solid var(--color-more-faint);
+    padding-top: 0.8rem;
+    font-size: 0.85rem;
+    color: var(--color-faint);
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+}
+
+.forecast {
+    display: flex;
+    flex-direction: column;
+}
+
+.forecast-date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    padding-bottom: 0.8rem;
+    color: var(--color-more-faint);
+}
+
+.forecast-header {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.forecast-icon .forecast-icon-img {
+    width: 36px;
+}
+
+.forecast-icon {    
+    background: var(--color-faint);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.forecast_minmax_section {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 0.3rem;
+}
+
+.forecast-rain-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    padding-top: 0.4rem;
+    gap: 0.3rem;  
+}
+
+.forecast-rain-icon {
+    height: 12px;
+}
+
+.weather-updated {
+    padding-top: 0.8rem;
+    font-size: 0.85rem;
+    margin-bottom: -20px;
+    color: var(--color-more-faint);
+    align-self: center;
+}
+
+#map-icon {
+    height: 0.75rem;
+    transform: translateY(12%);
+    padding-right: 3px;
+}
+
+/* SPORTS */
+
+#sports-widget {
+    align-items: center;
+    flex-direction: column;
+    margin-top: 1.2rem;
+    margin-bottom: -1.5rem;
+}
+
+.match-data {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    border-top: var(--border-size) dotted var(--color-more-faint);
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    
+}
+
+.match-teams {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.team-data {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-left: 0.4rem;
+}
+
+.team-badge {
+    height: 18px;
+}
+
+.match-scores {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.match-result {
+    display: flex;
+    align-items: center;
+    margin-right: 0.4rem;
+    gap: 1rem;
+}
+
+.match-status {
+    color: var(--color-faint)
+}
+
+/* SHORTCUTS */
+
+.shortcuts-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem 1rem;
+    margin-top: 8px;
+}
+
+.shortcut {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+    color: var(--color-more-faint);
+    text-decoration: none;
+}
+
+.shortcut-icon {
+    width: 1.8rem;
+    height: 1.8rem;
+    opacity: var(--shortcut-opacity);
+    transition: opacity 150ms ease, filter 150ms ease, transform 150ms ease;
+}
+
+.shortcut-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-more-faint);
+    transition: color 150ms ease;
+}
+
+.shortcut:hover .shortcut-icon {
+    opacity: 1;
+    transform: translateY(-2px);
+    filter: drop-shadow(0 0.45rem 0.35rem rgba(32, 33, 36, 0.18));
+}
+
+.shortcut:hover .shortcut-label {
+    color: var(--color-txt);
+}
+
+/* SEARCH BAR DETAILS */
+
+.search-bar {
+    position: relative;
+    width: 100%;
+    height: 48px;
+    display: flex;
+}
+
+.search-input {
+    box-sizing: border-box;
+    border: var(--border-size) solid var(--color-more-faint);
+    border-radius: 15px;
+    background: transparent;
+    color: var(--color-txt);
+    font-family: monospace, "Cascadia Mono";
+    font-weight: 700;
+    min-width: 0;
+    flex: 1;
+    padding: 0.6rem 3rem 0.6rem 0.8rem;
+}
+
+.search-clear {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 2rem;
+    height: 2rem;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--color-faint);
+    font-family: Arial, sans-serif;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+
+    display: grid;
+    place-items: center;
+}
+
+.search-clear.is-clear {
+    font-size: 1.6rem;
+}
+
+.search-input::placeholder {
+    color: var(--color-more-faint);
+}
+
+.google-logo {
+    width: 1rem;
+    height: 1rem;
+    opacity: 0.6;
+}
+
+/* DARK MODE SWITCH */
+
+.theme-toggle {
+    width: 42px;
+    height: 24px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+
+    background: var(--color-more-faint);
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+
+    transition: background 0.3s ease;
+}
+
+/* the circle */
+.theme-toggle .thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+
+    background: var(--color-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    font-size: 12px;
+    color: var(--color-txt);
+
+    transition: transform 0.3s ease;
+}
+
+.dark-mode .theme-toggle .thumb {
+    transform: translateX(16px);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.05);
+}
