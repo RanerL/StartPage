@@ -13,7 +13,7 @@
     --color-bg: #1b271f;  /* 2c251f */
     --color-txt: #f3d8b6;   
     --color-faint: #b89b79;
-    --color-more-faint: rgba(255, 255, 255, 0.15);
+    --color-more-faint: rgba(255, 255, 255, 0.24);
     --shortcut-opacity: 0.91;
 }
 
@@ -67,6 +67,23 @@ body {
         var(--color-more-faint) 10px,
         var(--color-more-faint) 12px
     );
+}
+
+/* VIDEOS */
+
+.video-background {
+    width: 900px;
+    height: 900px;
+    overflow: hidden;
+    border: var(--border-size) solid var(--color-faint);
+    border-radius: 15px;
+    margin-right: var(--gap-size);
+}
+
+.video-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* SINGLE WIDGET DATA */

@@ -144,6 +144,7 @@ async function getWeather() {
 }
 
 getWeather();
+setInterval(getWeather, 900000);  // 15-min interval
 
 
 // SEARCH BUTTON
