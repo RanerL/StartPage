@@ -13,7 +13,7 @@
     --color-bg: #1b271f;  /* 2c251f */
     --color-txt: #f3d8b6;   
     --color-faint: #b89b79;
-    --color-more-faint: rgba(255, 255, 255, 0.24);
+    --color-more-faint: rgba(255, 255, 255, 0.3);
     --shortcut-opacity: 0.91;
 }
 
@@ -69,7 +69,7 @@ body {
     );
 }
 
-/* VIDEOS */
+/* VIDEOS - currently removed */
 
 .video-background {
     width: 900px;
@@ -84,6 +84,37 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+/* LEFT-SIDE IMAGE */
+
+.bg-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 960px; /* space reserved for widgets */
+    overflow: hidden;
+}
+
+.bg-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    /* controls which horizontal part of the image is visible */
+    object-position: 30% center;
+
+    mask-image: linear-gradient(
+        to right,
+        black 0%,
+        black 20%,
+        rgba(0, 0, 0, 0.9) 35%,
+        rgba(0, 0, 0, 0.7) 50%,
+        rgba(0, 0, 0, 0.4) 65%,
+        rgba(0, 0, 0, 0.15) 80%,
+        transparent 100%
+    );
 }
 
 /* SINGLE WIDGET DATA */
