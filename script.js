@@ -273,6 +273,101 @@ function buildTeamHtml(match, matchTeams, matchScores, type) {
 
 getSports();
 
+// NOTES
+const notesForm = document.querySelector('#notes-form')
+const notesInput = document.querySelector('#notes-input')
+const notesList = document.querySelector('#notes-list')
+
+let notes = JSON.parse(localStorage.getItem('notes')) || []
+
+function saveNotes() {
+    localStorage.setItem('notes', JSON.stringify(notes))
+}
+
+function renderNotes() {
+	notesList.innerHTML = ''
+
+	notes.forEach(note => {
+		const noteItem = document.createElement('div')
+		noteItem.classList.add('note-item')
+
+		if (note.completed) {
+			noteItem.classList.add('completed')
+		}
+
+		const checkbox = document.createElement('input')
+		checkbox.type = 'checkbox'
+		checkbox.classList.add('note-checkbox')
+		checkbox.checked = note.completed
+
+		checkbox.addEventListener('change', () => {
+			note.completed = checkbox.checked
+			saveNotes()
+			renderNotes()
+		})
+
+		const text = document.createElement('div')
+		text.classList.add('note-text')
+		text.innerHTML = formatNoteText(note.text)
+
+		const deleteButton = document.createElement('button')
+		deleteButton.classList.add('note-delete')
+		deleteButton.textContent = '×'
+
+		deleteButton.addEventListener('click', () => {
+			notes = notes.filter(item => item.id !== note.id)
+			saveNotes()
+			renderNotes()
+		})
+
+		noteItem.append(
+			checkbox,
+			text, 
+			deleteButton
+		)
+
+		notesList.appendChild(noteItem)
+	})
+}
+
+notesForm.addEventListener('submit', event => {
+	event.preventDefault()
+
+	const text = notesInput.value.trim()
+	if (!text) {
+		return
+	}
+
+	notes.push({
+		id: Date.now(),
+		text,
+		completed: false
+	})
+
+	saveNotes()
+	renderNotes()
+	notesInput.value = ''
+})
+
+renderNotes()
+
+// Change text in braces to muted color
+function formatNoteText(text) {
+	const escaped = escapeHtml(text)
+	return escaped.replace(
+		/\((.*?)\)/g,
+        '<span class="note-muted">($1)</span>'
+	)
+}
+
+function escapeHtml(text) {
+	const div = document.createElement('div')
+	div.textContent = text
+	return div.innerHTML
+}
+
+
+
 // https://gist.github.com/stellasphere/9490c195ed2b53c707087c8c2db4ec0c
 const weatherJSON = {
 	"0":{

@@ -39,7 +39,7 @@
                 </form>
 
                 <section class="widget">
-                    <div class="widget-header">SHORTCUTS</div>
+                    <div class="widget-header">WEB</div>
                     <div class="widget-body">
                         <div class="shortcuts-grid">
                             <!-- 1st row -->
@@ -86,7 +86,7 @@
                 </section>
 
                 <section class="widget">
-                    <div class="widget-header">SPORTS</div>
+                    <div class="widget-header">SCORES</div>
                     <div id="sports-widget" class="widget-body"></div>
                 </section>
 
@@ -209,9 +209,19 @@
                     </div>
                 </section>
 
-                <section class="widget widget-placeholder">
-                    <div class="widget-header">SYSTEM</div>
-                    <div class="widget-body">
+                <section class="widget notes-widget">
+                    <div class="widget-header">NOTES</div>
+                    <div class="widget-body notes-body">
+                        <form id="notes-form" class="notes-form">
+                            <input
+                                id="notes-input"
+                                class="notes-input"
+                                type="text"
+                                placeholder="Add a note..."
+                                autocomplete="off"
+                            >
+                        </form>
+                        <div id="notes-list" class="notes-list"></div>
                     </div>
                 </section>
 
