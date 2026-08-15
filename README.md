@@ -1,3 +1,3 @@
 <img src="assets/screenshot_main.png">
 
-*work-in-progress*
+*<p align="right">work-in-progress</p>*
