@@ -1,3 +1,3 @@
-<img src="assets/screenshot_13082026.png">
+<img src="assets/screenshot_main.png">
 
 *work-in-progress*
