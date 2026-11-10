@@ -25,7 +25,6 @@ toggleBtn.addEventListener("click", () => {
 function toggleDark() {
     thumb.textContent = "⏾";
     document.getElementById("github").src = "https://cdn.simpleicons.org/github/ffffff";
-    document.getElementById("lofi_cafe").src = "https://cdn.simpleicons.org/soundcharts/f7f5ef";
     const gLogo = document.querySelector(".google-logo");
     if (gLogo) {
         gLogo.src = "https://cdn.simpleicons.org/google/f3d8b6";
@@ -39,7 +38,6 @@ function toggleDark() {
 function toggleLight() {
     thumb.textContent = "𖤓";
     document.getElementById("github").src = "https://cdn.simpleicons.org/github";
-    document.getElementById("lofi_cafe").src = "https://cdn.simpleicons.org/soundcharts";
     const gLogo = document.querySelector(".google-logo");
     if (gLogo) {
         gLogo.src = "https://cdn.simpleicons.org/google/202124";
